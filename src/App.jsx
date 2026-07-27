@@ -22,13 +22,17 @@ function App() {
       <main>
         {
           actresses.map(item => (
-
-            <div key={item.id}>
-              <div>
-                {item.name}
-
+            <div className='card-image' key={item.id}>
+              <div className='card-image'>
+                <img src={item.image} alt="" />
               </div>
-              <img src={item.image} alt="" />
+              <div className='card-content'>
+                <p>Name: {item.name}</p>
+                <p>Birth: {item.birth_year}</p>
+                <p>Nationality: {item.nationality}</p>
+                <p>Biography: {item.biography}</p>
+                <p>Known for: {item.known_for}</p>
+              </div>
             </div>
           ))
         }
