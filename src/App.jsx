@@ -22,7 +22,7 @@ function App() {
       <main>
         {
           actresses.map(item => (
-            <div className='card-image' key={item.id}>
+            <div className='cards' key={item.id}>
               <div className='card-image'>
                 <img src={item.image} alt="" />
               </div>
