@@ -10,15 +10,16 @@ function App() {
   const API_URL2 = 'https://lanciweb.github.io/demo/api/actors/'
 
   useEffect(() => {
-    axios.get(API_URL)
-      .then(res => {
-        console.log(res);
-        setActresses(res.data)
-      });
-    axios.get(API_URL2)
-      .then(res2 => {
-        console.log(res2);
-        setActors(res2.data)
+    Promise.all([
+      axios.get(API_URL),
+      axios.get(API_URL2)
+    ])
+      .then(([resActresses, resActors]) => {
+        setActresses(resActresses.data);
+        setActors(resActors.data);
+      })
+      .catch(error => {
+        console.log("Si è verificato un errore nel caricamento dei dati:", error);
       });
   }, []);
 
